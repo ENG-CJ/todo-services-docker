@@ -24,8 +24,9 @@ const TodoApp = () => {
   // Fetch todos from the server
   useEffect(() => {
     const fetchTodos = async () => {
+      var url = import.meta.env.api;
       try {
-        const response = await axios.get("http://localhost:5000/todos");
+        const response = await axios.get(url+"todos");
         setTodos(response.data.data); // Assuming API response has a "data" field
       } catch (error) {
         console.error("Error fetching todos:", error);

@@ -9,6 +9,7 @@ spec:
       app: frontend-pod
   template:
     metadata:
+    
       name: frontend
       labels:
         app: frontend-app
@@ -19,4 +20,9 @@ spec:
           image: engcj/todo-frontend
           ports:
             - containerPort: 80
+          env:
+            - name: VITE_title
+              value: "HELLO TODO FROM REACT"
+            - name: VITE_api
+              value: "http://backend-service:500/"
     
