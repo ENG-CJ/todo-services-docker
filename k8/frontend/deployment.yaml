@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: frontend-deploy
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: frontend-pod
+  template:
+    metadata:
+      name: frontend
+      labels:
+        app: frontend-app
+        tier: frontend
+    spec:
+      containers:
+        - name: todo-frontend
+          image: engcj/todo-frontend
+          ports:
+            - containerPort: 80
+    

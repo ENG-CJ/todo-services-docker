@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: backend-deploy
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: backend-pod
+  template:
+    metadata:
+      name: backend
+      labels:
+        app: backend-app
+        tier: backend
+    spec:
+      containers:
+        - name: todo-backend
+          image: engcj/todo-backend
+          ports:
+            - containerPort: 5000
+    
